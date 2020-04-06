@@ -38,9 +38,17 @@
 
             <p id="total">Total Pengembalian : </p>
 
+            <br><br>
+
+            <h4>List Pinjaman</h4>
+            <ul data-role="listview" id="listpinjam">
+
+            </ul>
+
             <script>
 
                 var simpan = [];
+                var counter = 0;
 
                 $("#input").click(() => {
                     var jumlah = parseFloat($("#jumlah").val());
@@ -60,6 +68,11 @@
                     simpan.push(total);
 
                     $("#total").html("Total Pengembalian : " + total);
+
+
+                    $("#listpinjam").append('<li><a href=>' + simpan[counter] + '</a></li>');
+                    counter++;
+
                 });
 
             </script>
