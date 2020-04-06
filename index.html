@@ -38,7 +38,31 @@
 
             <p id="total">Total Pengembalian : </p>
 
+            <script>
 
+                var simpan = [];
+
+                $("#input").click(() => {
+                    var jumlah = parseFloat($("#jumlah").val());
+                    var waktu = parseFloat($("#waktu").val());
+                    var total = 678;
+
+                    if (waktu <= 6) {
+                        total = jumlah + (jumlah * 2 / 100 * waktu);
+                    }
+                    else if (waktu <= 12) {
+                        total = jumlah + (jumlah * 1.5 / 100 * waktu);
+                    }
+                    else {
+                        total = jumlah + (jumlah * 1 / 100 * waktu);
+                    }
+
+                    simpan.push(total);
+
+                    $("#total").html("Total Pengembalian : " + total);
+                });
+
+            </script>
         </div>
     </div>
     <div id="hlm2" data-role="page">
