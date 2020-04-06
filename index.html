@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel=stylesheet href=jmobile/jquery.mobile-1.4.5.min.css />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src=jmobile/jquery.mobile-1.4.5.min.js></script>
+
+    <title>UTS</title>
+</head>
+
+<body data-theme="b">
+
+    <div data-role="header" data-theme=b>
+        <h1>Header</h1>
+    </div>
+    <br>
+    <div id="hlm1" data-role="page">
+        <div data-role="content" data-theme="b">
+            <h1>Input Pinjaman</h1>
+            <div data-role="fieldcontain">
+                <label for="jumlah">Jumlah Pinjaman (Rp)</label>
+                <input type="text" name="jumlah" id="jumlah" value="">
+
+                <br><br>
+
+                <label for="waktu">Waktu Pinjaman (cicilan)</label>
+                <input type="text" name="waktu" id="waktu" value="">
+            </div>
+            <br><br>
+
+            <button id="input" data-icon="plus">Input</button>
+
+            <br><br>
+
+            <p id="total">Total Pengembalian : </p>
+
+
+        </div>
+    </div>
+    <div id="hlm2" data-role="page">
+
+    </div>
+
+    <br>
+    <div data-role="footer">
+        <h1>Footer</h1>
+    </div>
+
+</body>
+
+</html>
