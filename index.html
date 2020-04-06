@@ -14,27 +14,33 @@
 
 <body data-theme="b">
 
-    <div data-role="header" data-theme=b>
-        <h1>Header</h1>
-    </div>
-    <br>
-    <div id="hlm1" data-role="page">
+
+    <div id="hlm1" data-role="page" data-transition="flip" data-theme="b">
+        <div data-role="header" data-theme=b>
+            <h4>Input Pinjaman</h4>
+        </div>
         <div data-role="content" data-theme="b">
-            <h1>Input Pinjaman</h1>
-            <div data-role="fieldcontain">
-                <label for="jumlah">Jumlah Pinjaman (Rp)</label>
-                <input type="text" name="jumlah" id="jumlah" value="">
 
-                <br><br>
+            <label for="nama">Nama Peminjam</label><br>
+            <input type="text" name="nama" id="nama" value="">
 
-                <label for="waktu">Waktu Pinjaman (cicilan)</label>
-                <input type="text" name="waktu" id="waktu" value="">
-            </div>
-            <br><br>
+            <br>
 
-            <button id="input" data-icon="plus">Input</button>
+            <label for="jumlah">Jumlah Pinjaman (Rp)</label><br>
+            <input type="text" name="jumlah" id="jumlah" value="">
 
-            <br><br>
+            <br>
+
+            <label for="waktu">Waktu Pinjaman (cicilan)</label><br>
+            <input type="text" name="waktu" id="waktu" value="">
+
+            <br>
+
+            <input id="input" type="button" value="input" data-icon="plus"
+                class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-plus">
+
+
+            <br>
 
             <p id="total">Total Pengembalian : </p>
 
@@ -44,48 +50,54 @@
             <ul data-role="listview" id="listpinjam">
 
             </ul>
+            <br><br>
 
-            <script>
-
-                var simpan = [];
-                var counter = 0;
-
-                $("#input").click(() => {
-                    var jumlah = parseFloat($("#jumlah").val());
-                    var waktu = parseFloat($("#waktu").val());
-                    var total = 678;
-
-                    if (waktu <= 6) {
-                        total = jumlah + (jumlah * 2 / 100 * waktu);
-                    }
-                    else if (waktu <= 12) {
-                        total = jumlah + (jumlah * 1.5 / 100 * waktu);
-                    }
-                    else {
-                        total = jumlah + (jumlah * 1 / 100 * waktu);
-                    }
-
-                    simpan.push(total);
-
-                    $("#total").html("Total Pengembalian : " + total);
-
-
-                    $("#listpinjam").append('<li><a href=>' + simpan[counter] + '</a></li>');
-                    counter++;
-
-                });
-
-            </script>
+            <div data-role="footer">
+                <h4 data-theme="b">Edward Manhattan C14180100</h4>
+            </div>
         </div>
     </div>
-    <div id="hlm2" data-role="page">
+
+    <div id="hlm2" data-role="page" data-transition="flip">
 
     </div>
 
     <br>
-    <div data-role="footer">
-        <h1>Footer</h1>
-    </div>
+
+    <script>
+
+        var simpan = [];
+        var simpanNama = [];
+        var counter = 0;
+
+        $("#input").click(() => {
+            var nama = $("#nama").val();
+            var jumlah = parseFloat($("#jumlah").val());
+            var waktu = parseFloat($("#waktu").val());
+            var total = 678;
+
+            if (waktu <= 6) {
+                total = jumlah + (jumlah * 2 / 100 * waktu);
+            }
+            else if (waktu <= 12) {
+                total = jumlah + (jumlah * 1.5 / 100 * waktu);
+            }
+            else {
+                total = jumlah + (jumlah * 1 / 100 * waktu);
+            }
+
+            simpan.push(total);
+            simpanNama.push(nama);
+
+            $("#total").html("Total Pengembalian : " + total);
+
+
+            $("#listpinjam").append("<li><a href='#hlm2?index=counter'>" + simpan[counter] + '</a></li>');
+            counter++;
+
+        });
+
+    </script>
 
 </body>
 
